@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Pregunta</title>
+         {% load static %} 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <script src="{% static 'css/jquery.min.js'%}"></script>
+        <script src="{% static 'css/bootstrap.min.js'%}"></script>
+    </head>
+    <body>
+        <form name="onlShpFrmLgn" method="POST">
+        {% csrf_token %}
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                    <div align="right"><a href="{% url 'userQuestion' %}">I HAVE QUESTION</a></div>
+                    <legend>Question</legend>
+                    {% if messages %}
+                      {% for message in messages %}
+                        <div class="alert alert-success">
+                        {{message}}
+                        </div>
+                      {% endfor %}
+                    {% endif %}
+                    {% for frm in frm %}
+                      <div class="form-group">
+                        <div class="input-group input-group-lg">
+                          <span class="input-group-addon" ><i class="glyphicon glyphicon-user"></i></span>
+                          {{frm.u_id }}
+                        </div>
+                      </div>
+                    
+                      <div class="form-group">
+                        <div class="input-group input-group-lg">
+                          <span class="input-group-addon" ><i class="glyphicon glyphicon-question-sign"></i></span>
+                          {{frm.q_ques}}
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <a href="{% url 'answer' frm.id %}" class="btn btn-primary form-group">Answer</a>
+                      </div>
+                    {% endfor %}
+                                        
+                </div>
+              </div>
+            </div>
+        </form>
+    </body>
+</html>

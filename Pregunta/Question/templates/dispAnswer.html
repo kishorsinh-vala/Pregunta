@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Pregunta</title>
+        {% load static %} 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <script src="{% static 'css/jquery.min.js'%}"></script>
+        <script src="{% static 'css/bootstrap.min.js'%}"></script>
+        <style>
+        ul {
+          list-style: none;
+        }
+        textarea
+        {
+          width:100%;
+          resize:none;
+          border-radius:0px 5px 5px 2px;
+        }
+        input[type="text"],select{
+          pointer-events:none;
+        }
+        </style>
+    </head>
+    <body>
+      {{form}}
+    </body>
+</html>
